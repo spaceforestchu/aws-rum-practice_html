@@ -22,5 +22,34 @@
     <h1>Test RUM</h1>
 
     <script src="" async defer></script>
+    <script>
+      (function (n, i, v, r, s, c, x, z) {
+        x = window.AwsRumClient = { q: [], n: n, i: i, v: v, r: r, c: c };
+        window[n] = function (c, p) {
+          x.q.push({ c: c, p: p });
+        };
+        z = document.createElement("script");
+        z.async = true;
+        z.src = s;
+        document.head.insertBefore(
+          z,
+          document.head.getElementsByTagName("script")[0]
+        );
+      })(
+        "cwr",
+        "58229f74-6db9-4413-8bd2-574a5bd1f082",
+        "1.0.0",
+        "us-east-2",
+        "https://client.rum.us-east-1.amazonaws.com/1.16.1/cwr.js",
+        {
+          sessionSampleRate: 1,
+          identityPoolId: "us-east-2:243680ac-d4a6-4faa-9aad-5cf1f2df93f7",
+          endpoint: "https://dataplane.rum.us-east-2.amazonaws.com",
+          telemetries: ["performance", "errors", "http"],
+          allowCookies: true,
+          enableXRay: false,
+        }
+      );
+    </script>
   </body>
 </html>
